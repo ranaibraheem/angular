@@ -1,0 +1,120 @@
+nav {
+  background-image: url('/assets/images/background.jpg');
+  /*Photo by Maria Orlova from Pexels*/
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* background-size: cover; */
+  border: solid grey 2px;
+  border-radius: 20px;
+  height: 180px;
+  margin: 1em;
+
+}
+
+/* links in nav */
+.navlinks a {
+  color: #cad2c5;
+  font-size: 1em;
+}
+
+.navlinks a:hover {
+  color: #457b9d;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+.search{
+  position: absolute; /*or fixed*/
+  right: 1em;
+}
+.searchInput{
+  border-radius: 10px;
+  background-color:#fff1e6;
+  color: #370617;
+  border-color: #656d4a;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  transition: background-color 200ms ease-in-out;
+}
+.searchInput:hover{
+  background-color: #656d4a;
+  color: #fff1e6;
+}
+::placeholder {
+  color: #cad2c5;
+}
+#logIn {
+  color: #cad2c5;
+  background-color: #606f49;
+  border-color: #656d4a;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+
+}
+.btn-primary {
+  color: #cad2c5;
+  background-color: #414833;
+  border-color: #656d4a;
+  border-radius: 10px;
+  margin: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+
+
+}
+
+
+
+#username {
+  background-color: #eae0d5;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+
+#password {
+  background-color: #eae0d5;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+
+.dropdown-menu {
+  border-radius: 1rem;
+  background-color: #eae0d5;
+
+}
+
+h1 {
+  color: rgb(245, 240, 216);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 2em;
+  padding: 1rem;
+
+}
+
+header {
+  border: lightgrey solid 2px;
+  background-color: rgb(65, 37, 2);
+  font-weight: bold;
+  border-radius: 20px;
+  margin: 1em;
+
+}
+
+.basket {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.411);
+  transition: 0.3s;
+  background-color: #f2e9e4;
+  border-radius: 20px;
+  /* width: 200px;
+  height: 150px; */
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+h2 {
+  font-size: 3em;
+  color: #370617;
+  text-align: center;
+  padding-top: 2.5rem;
+}

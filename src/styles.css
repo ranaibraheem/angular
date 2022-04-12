@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  display: inline-block;
+  margin: auto;
+  padding: 0px;
+  border: solid lightgrey 1px;
+  background-image: url('/assets/images/bodybg.jpg');
+  /* Photo by Monstera from Pexels */
+
+}
