@@ -7,5 +7,6 @@ import { Component } from "@angular/core";
 })
 
 export class HeaderComponent {
-    title = 'Cherkkoffie';
+  title = '&#x1D554;&#x1D559;&#x1D556;&#x1D563;&#x1D55C;&#x1D55C;&#x1D560;&#x1D557;&#x1D557;&#x1D55A;&#x1D556;';
+  info = 'Coffee Machines';
 }
