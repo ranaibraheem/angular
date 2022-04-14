@@ -1,7 +1,5 @@
 <nav class="sticky-top">
-  <h2 ng-bind-html="title">
-    {{title}}
-  </h2>
+  <h2 [innerHTML]="title"></h2>
 
   <div class="container-fluid" class="navlinks">
     <a href="/signIn.html" class="logIn btn btn-primary">LOG IN</a>

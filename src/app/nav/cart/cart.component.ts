@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 
 export class CartComponent {
   search = '';
+  i=0;
+  addMachine(){
+    this.i++;
+  }
 
 }
