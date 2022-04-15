@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
   imagePath = 'assets/images/';
+  cartIcon = "&#x1F6D2;";
+
   products = [{
     name: "Simple and tasty",
     image: "simplecoffem.jpg",
@@ -1014,8 +1016,18 @@ export class ProductsComponent implements OnInit {
   show: true,
 },
 ];
+sale30(){
+  this.products.forEach(product => {
+    if(product.onSale30){
+      product.price = product.price - (product.price * 0.3);
+    }
+  });
+}
 
-  constructor() { }
+
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
