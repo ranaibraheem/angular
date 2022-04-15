@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsComponent implements OnInit {
   imagePath = 'assets/images/';
   cartIcon = "&#x1F6D2;";
+  shoppingCart = [];
+  totalPrice = 0;
+  totalQuantity = 0;
+  totalPriceNoSale = 0;
 
   products = [{
     name: "Simple and tasty",
@@ -1016,15 +1020,68 @@ export class ProductsComponent implements OnInit {
   show: true,
 },
 ];
-sale30(){
-  this.products.forEach(product => {
-    if(product.onSale30){
-      product.price = product.price - (product.price * 0.3);
+
+
+addToCart(product) {
+  this.products.forEach(item => {
+    if(item.id === product.id && item.stock>0){
+      if(!this.shoppingCart.some(elem => elem.id === item.id)){
+        this.shoppingCart.push(item);
+        this.totalQuantity++;
+
+          item.quantity++;
+          item.stock--;
+
+        if (item.onSale30) {
+          this.totalPrice += item.price -item.price*30/100
+          this.totalPriceNoSale += item.price;
+        } else if (item.onSale50) {
+          this.totalPrice += item.price - item.price*50/100
+          this.totalPriceNoSale += item.price;
+
+        } else {
+          this.totalPrice += item.price;
+          this.totalPriceNoSale += item.price;
+        }
+        console.log(this.shoppingCart);
+        console.log(this.totalQuantity);
+        console.log(this.totalPrice);
+
+        // localStorage.setItem('totalQuantity', this.totalQuantity);
+        // localStorage.setItem('totalPrice', this.totalPrice);
+        // localStorage.setItem('totalPriceNoSale', this.totalPriceNoSale);
+
+
+      }else{
+        this.shoppingCart.forEach(ele => {
+          if(ele.id === product.id && ele.stock>0){
+            ele.quantity++;
+            ele.stock--;
+
+            this.totalQuantity++;
+            if (ele.onsale30) {
+              this.totalPrice += item.price-ele.price*30/100;
+              this.totalPriceNoSale += ele.price;
+
+
+            } else if (ele.onsale50) {
+              this.totalPrice += item.price- ele.price*50/100;
+              this.totalPriceNoSale += ele.price;
+
+            } else {
+              this.totalPrice += parseFloat(ele.price);
+              this.totalPriceNoSale += parseFloat(ele.price);
+            }
+            // localStorage.setItem('totalQuantity', this.totalQuantity);
+            // localStorage.setItem('totalPrice', parseFloat(this.totalPrice));
+            // localStorage.setItem('totalPriceNoSale', parseFloat(this.totalPriceNoSale));
+
+          }
+        })
+      }
     }
-  });
+  })
 }
-
-
 
   constructor() {
   }
