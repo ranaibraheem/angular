@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
-import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { CartComponent } from './nav/cart/cart.component';
 import { ServersComponent } from './servers/servers.component';
@@ -18,7 +17,6 @@ import { ProductsComponent } from './products/products.component';
     ServerComponent,
     NavComponent,
     HeaderComponent,
-    MainComponent,
     FooterComponent,
     CartComponent,
     ServersComponent,
