@@ -1,4 +1,119 @@
-<button class="btn btn-primary position-relative" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+<span>
+  <!-- <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <span [innerHTML]="cartIcon"></span>
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          <div id=cartButton>
+              <div class="cart">
+                  <span class="total-quantity">{{totalQuantity}}</span>
+              </div>
+          </div>
+      </span>
+  </button>
+  <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+          <div id="cartBorder" class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Shopping Cart:</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                      aria-label="Close">
+                  </button>
+              </div>
+              <hr>
+              <div class="modal-body">
+                  <h6>Cart Items:</h6>
+                  <div id="border"> -->
+                  <!-- <ul id="shoppingCart">
+                      <li *ngFor="let product of shoppingCart" >
+                          <span id="shopping">Name:</span> {{product.name}}<br>
+                          <span id="shopping">Quantity:</span>({{product.quantity}})<br>
+                          <span id="shopping">Price:</span>
+                          <span v-if="product.onSale30">
+                              <span class="newPrice30"> <b>$ {{((product.price - product.price*30/100)*product.quantity).toFixed(2)}}</b>
+                                  <span id="saleBorder">Sale 30%</span>
+                              </span>
+                          </span>
+                          <span v-else-if="product.onSale50">
+                              <span class="newPrice50"> <b>$ {{((product.price - product.price*50/100)*product.quantity).toFixed(2)}}</b>
+                                  <span id="saleBorder"> Sale 50%</span>
+                              </span>
+                          </span>
+                          <span v-else><b>$ {{(product.price*product.quantity).toFixed(2)}}</b></span><br>
+                          <div class="col-md-12">
+                              <img [src]="'/assets/images/' + product.image" width="40%">
+                              <span>&#x1F6D2;</span>
+
+                              <button class="addToCart btn btn-primary" (click)="updateProduct(product,index,'substract')"
+                                  [disabled]="product.stock === 0 && product.quantity===0"
+                                  ngClass="{disabledButton: product.stock===0 && product.quantity===0}">-
+                              </button>
+                              <span>{{product.quantity}}</span>
+                              <button class=" addToCart btn btn-primary" (click)="updateProduct(product, index, 'add')"
+                                  [disabled]="product.stock === 0" ngClass="{disabledButton: product.stock === 0}">+
+                              </button>
+                              <span>
+                              <i class="fa fa-trash-o" id="deletBtn" (click)="removeProduct(index)"></i>
+                              </span>
+                          </div>
+                          <hr>
+                      </li>
+                  </ul> -->
+                  <!-- <h5 class="modal-title" id="staticBackdropLabel">Total:</h5>
+                  <ul id="shoppingCart">
+                      <li> <span id="shopping">Total Price:</span>
+                          <span><b>$ {{totalPrice.toFixed(2)}}</b></span>
+                      </li>
+                      <span style="color:grey">
+                          <small>Total before discount: $ {{totalPriceNoSale.toFixed(2)}}</small>
+                      </span><br>
+                      <span style="color:grey">
+                          <small>Total discount: $ {{(totalPriceNoSale - totalPrice).toFixed(2)}}</small>
+                      </span><hr>
+                      <li><span id="shopping">Remove All:</span>
+                          <i class="fa fa-trash-o" id="deletBtn" (click)="remove()" ></i>
+                      </li>
+                  </ul> -->
+              <!-- </div>
+              </div>
+              <div class="modal-footer">
+                 <a :href="'/checkout'">
+                      <button type="submit" class="btn btn-primary">Check Out</button>
+                  </a>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div> -->
+
+
+
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+</span>
+
+
+<!-- <button class="btn btn-primary position-relative" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
 aria-expanded="false" (click)="addMachine()">+<svg xmlns="http://www.w3.org/2000/svg" width="16"
         height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
         <path
@@ -20,4 +135,4 @@ aria-expanded="false" (click)="addMachine()">+<svg xmlns="http://www.w3.org/2000
 <span class="search">
   <i class="fa fa-search " style="color: #370617;"></i>
   <input class="searchInput" type="text" [(ngModel)]="search" placeholder="SEARCH">
-</span>
+</span> -->
