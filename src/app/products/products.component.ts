@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-products',
@@ -12,6 +12,8 @@ export class ProductsComponent implements OnInit {
   totalPrice = 0;
   totalQuantity = 0;
   totalPriceNoSale = 0;
+
+  @Output() productAdded = new EventEmitter();
 
   products = [{
     name: "Simple and tasty",
@@ -1020,6 +1022,7 @@ export class ProductsComponent implements OnInit {
   show: true,
 },
 ];
+Products=localStorage.setItem("Products", JSON.stringify(this.products) );
 
 
 addToCart(product) {
@@ -1031,6 +1034,11 @@ addToCart(product) {
 
           item.quantity++;
           item.stock--;
+          localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+          localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+          localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+          localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+
 
         if (item.onSale30) {
           this.totalPrice += item.price -item.price*30/100
@@ -1046,10 +1054,13 @@ addToCart(product) {
         console.log(this.shoppingCart);
         console.log(this.totalQuantity);
         console.log(this.totalPrice);
+        console.log(this.totalPriceNoSale);
 
-        // localStorage.setItem('totalQuantity', this.totalQuantity);
-        // localStorage.setItem('totalPrice', this.totalPrice);
-        // localStorage.setItem('totalPriceNoSale', this.totalPriceNoSale);
+
+        localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+        localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+        localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+        localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
 
 
       }else{
@@ -1059,6 +1070,11 @@ addToCart(product) {
             ele.stock--;
 
             this.totalQuantity++;
+            localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+            localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+            localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+            localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+
             if (ele.onsale30) {
               this.totalPrice += item.price-ele.price*30/100;
               this.totalPriceNoSale += ele.price;
@@ -1075,9 +1091,15 @@ addToCart(product) {
             console.log(this.shoppingCart);
             console.log(this.totalQuantity);
             console.log(this.totalPrice);
+            console.log(this.totalPriceNoSale);
+
+            localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+            localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+            localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+            localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
 
             // localStorage.setItem('totalQuantity', this.totalQuantity);
-            // localStorage.setItem('totalPrice', parseFloat(this.totalPrice));
+            // localStorage.setItem('totalPrice', this.totalPrice);
             // localStorage.setItem('totalPriceNoSale', parseFloat(this.totalPriceNoSale));
 
           }
@@ -1087,10 +1109,19 @@ addToCart(product) {
   })
 }
 
+
   constructor() {
+    // this.totalPrice = localStorage.getItem('totalPrice') !== null ? parseFloat(localStorage.getItem('totalPrice')) : 0;
   }
 
   ngOnInit(): void {
+    // this.shoppingCart = [];
+    // this.totalQuantity = 0;
+    // this.totalPrice = 0;
   }
 
 }
+// localStorageCart(){
+//   if(localStorage.getItem('cart')){
+//     this.shoppingCart = JSON.parse(localStorage.getItem('cart'));
+//   }

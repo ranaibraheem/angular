@@ -20,7 +20,7 @@
         <p class="soldOut" *ngIf="product.stock<=5 && product.stock>0">Almost Sold Out</p>
         <p *ngIf="product.stock>5">In Stock</p>
         <span [innerHTML]="cartIcon"></span>
-        <button class="addToCart btn btn-primary" (click)="addToCart(product)" [disabled]="product.stock==0">Add to Cart</button>
+        <button class="addToCart btn btn-primary" (click)="addToCart(product);addProductToCart()" [disabled]="product.stock==0">Add to Cart</button>
         <a ng-href="'detail/'+product.id">
           <button class="btn btn-primary">Detail</button>
         </a>
