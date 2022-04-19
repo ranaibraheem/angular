@@ -8,3 +8,15 @@ body {
   /* Photo by Monstera from Pexels */
 
 }
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #eae0d5;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 2rem;
+  outline: 0;
+}

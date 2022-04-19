@@ -1069,9 +1069,13 @@ addToCart(product) {
               this.totalPriceNoSale += ele.price;
 
             } else {
-              this.totalPrice += parseFloat(ele.price);
-              this.totalPriceNoSale += parseFloat(ele.price);
+              this.totalPrice += ele.price;
+              this.totalPriceNoSale += ele.price;
             }
+            console.log(this.shoppingCart);
+            console.log(this.totalQuantity);
+            console.log(this.totalPrice);
+
             // localStorage.setItem('totalQuantity', this.totalQuantity);
             // localStorage.setItem('totalPrice', parseFloat(this.totalPrice));
             // localStorage.setItem('totalPriceNoSale', parseFloat(this.totalPriceNoSale));
