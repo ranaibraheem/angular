@@ -88,12 +88,20 @@
 
 
   <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
-</button>
+ <!-- <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <span [innerHTML]="cartIcon">&#x1F6D2;</span>
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    <div id=cartButton>
+        <div class="cart">
+            <span class="total-quantity">{{totalQuantity}}</span>
+        </div>
+    </div>
+</span>
+
+</button> -->
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -110,9 +118,35 @@
     </div>
   </div>
 </div>
-</span>
+</span> -->
 
 
+
+<button class="btn btn-primary position-relative" (click)="open(mymodal); addMachine()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  <span [innerHTML]="cartIcon">&#x1F6D2;</span>
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    <div id=cartButton>
+        <div class="cart">
+            <span class="total-quantity">{{totalQuantity}}</span>
+        </div>
+    </div>
+  </span>
+</button>
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Shopping Cart</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">x</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is example from ItSolutionStuff.com
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+  </div>
+</ng-template>
 <!-- <button class="btn btn-primary position-relative" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
 aria-expanded="false" (click)="addMachine()">+<svg xmlns="http://www.w3.org/2000/svg" width="16"
         height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">

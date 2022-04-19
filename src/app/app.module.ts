@@ -7,9 +7,10 @@ import { ServerComponent } from './server/server.component';
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { CartComponent } from './nav/cart/cart.component';
+import { CartComponent } from './cart/cart.component';
 import { ServersComponent } from './servers/servers.component';
 import { ProductsComponent } from './products/products.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,15 @@ import { ProductsComponent } from './products/products.component';
     ServersComponent,
     ProductsComponent,
     ],
+
   imports: [
     BrowserModule,
     FormsModule,
+    NgbModule,
   ],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
+
 export class AppModule { }
