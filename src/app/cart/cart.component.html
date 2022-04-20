@@ -121,7 +121,7 @@
 </span> -->
 
 <button class="btn btn-primary position-relative" (click)="open(mymodal)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  <span [innerHTML]="cartIcon">&#x1F6D2;</span>
+  <span [innerHTML]="cartIcon"></span>
   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
     <div id=cartButton>
         <div class="cart">
@@ -134,49 +134,43 @@
 <ng-template #mymodal let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Shopping Cart</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">x</span>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
     </button>
-  </div>
+  </div><hr>
   <div class="modal-body">
     <h6>Cart Items:</h6>
-    <span>{{totalQuantity}}</span><br>
-<span>{{totalPrice}}</span><br>
-<span>{{shoppingCart[0].name}}</span><br>
-<span>{{Products[1].name}}</span>
-
 
     <div id="border">
     <ul id="shoppingCart">
-    <li v-for="(product, index) in products">
+    <li *ngFor="let product of shoppingCart; let index=index;">
             <span id="shopping">Name:</span> {{product.name}}<br>
             <span id="shopping">Quantity:</span>({{product.quantity}})<br>
             <span id="shopping">Price:</span>
-            <span v-if="product.onSale30">
+            <span *ngIf="product.onSale30">
                 <span class="newPrice30"> <b>$ {{(product.price - product.price*30/100)*product.quantity}}</b>
                     <span id="saleBorder">Sale 30%</span>
                 </span>
             </span>
-            <span v-else-if="product.onSale50">
+            <span *ngIf="product.onSale50">
                 <span class="newPrice50"> <b>$ {{(product.price - product.price*50/100)*product.quantity}}</b>
                     <span id="saleBorder"> Sale 50%</span>
                 </span>
             </span>
-            <span v-else><b>$ {{product.price*product.quantity}}</b></span><br>
+            <span *ngIf="!product.onSale30 && !product.onSale50"><b>$ {{product.price*product.quantity}}</b></span><br>
             <div class="col-md-12">
                 <img [src]="'/assets/images/' + product.image" width="40%">
-                <span>&#x1F6D2;</span>
+                <span [innerHTML]="cartIcon"></span>
 
-                <button class="addToCart btn btn-primary" (click)="updateProduct(product,index,'substract')"
+                <button class="addToCart btn btn-primary" (click)="updateItem(product,index,'substract')"
                     [disabled]="product.stock === 0 && product.quantity===0"
                     ngClass="{disabledButton: product.stock===0 && product.quantity===0}">-
                 </button>
                 <span>{{product.quantity}}</span>
-                <button class=" addToCart btn btn-primary" (click)="updateProduct(product, index, 'add')"
+                <button class=" addToCart btn btn-primary" (click)="updateItem(product, index, 'add')"
                     [disabled]="product.stock === 0" ngClass="{disabledButton: product.stock === 0}">+
                 </button>
                 <span>
-                <i class="fa fa-trash-o" id="deletBtn" (click)="removeProduct(index)"></i>
+                <i class="fa fa-trash-o" id="deletBtn" (click)="removeItem(index)"></i>
                 </span>
             </div>
             <hr>
@@ -201,7 +195,11 @@
 
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    <a [href]="'/checkout'">
+      <button type="submit" class="btn btn-primary">Check Out</button>
+  </a>
+  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="modal.close('Save click')">Close</button>
+
   </div>
 </ng-template>
 

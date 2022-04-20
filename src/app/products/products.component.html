@@ -1,7 +1,7 @@
 <div>
   <div class="products block">
     <div class="product_card card container-fluid col-md-5" *ngFor="let product of products">
-      <a ng-href="product.image">
+      <a [href]="imagePath+product.image">
         <img [src]="imagePath+product.image" class="card-img-top" >
       </a>
       <div class="cart-body">
@@ -20,7 +20,7 @@
         <p class="soldOut" *ngIf="product.stock<=5 && product.stock>0">Almost Sold Out</p>
         <p *ngIf="product.stock>5">In Stock</p>
         <span [innerHTML]="cartIcon"></span>
-        <button class="addToCart btn btn-primary" (click)="addToCart(product);addProductToCart()" [disabled]="product.stock==0">Add to Cart</button>
+        <button class="addToCart btn btn-primary" (click)="addToCart(product)" [disabled]="product.stock==0">Add to Cart</button>
         <a ng-href="'detail/'+product.id">
           <button class="btn btn-primary">Detail</button>
         </a>

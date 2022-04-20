@@ -12,12 +12,11 @@ export class AppComponent{
   title = '&#x1D554;&#x1D559;&#x1D556;&#x1D563;&#x1D55C;&#x1D55C;&#x1D560;&#x1D557;&#x1D557;&#x1D55A;&#x1D556;';
   search = '';
   productAdded = [];
-  // totalPrice = localStorage.getItem('totalPrice');
-  shoppingCart=localStorage.getItem('shoppingCart');
-  totalQuantity=JSON.parse(localStorage.getItem('totalQuantity'));
-  totalPrice = localStorage.getItem('totalPrice') !== null ? parseFloat(localStorage.getItem('totalPrice')) : 0;
-  totalPriceNoSale=JSON.parse(localStorage.getItem('totalPriceNoSale'));
+  shoppingCart=JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  totalQuantity=JSON.parse(localStorage.getItem('totalQuantity')) || 0;
+  // totalPrice = localStorage.getItem('totalPrice') !== null ? parseFloat(localStorage.getItem('totalPrice')) : 0;
+  totalPriceNoSale=JSON.parse(localStorage.getItem('totalPriceNoSale')) || 0;
 
-  // totalPrice=JSON.parse(localStorage.getItem("totalPrice"));
+  totalPrice=JSON.parse(localStorage.getItem("totalPrice")) || 0;
 
 }
