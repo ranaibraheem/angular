@@ -1,7 +1,7 @@
 <div>
   <div class="products block">
     <div class="product_card card container-fluid col-md-5" *ngFor="let product of products">
-      <a ng-href="product.image">
+      <a [href]="imagePath+product.image">
         <img [src]="imagePath+product.image" class="card-img-top" >
       </a>
       <div class="cart-body">

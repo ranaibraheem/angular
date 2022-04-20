@@ -12,7 +12,7 @@ nav {
 }
 
 /* links in nav */
-.navlinks a {
+/* .navlinks a {
   color: #cad2c5;
   font-size: 1em;
 }
@@ -22,7 +22,7 @@ nav {
   text-decoration: none;
   cursor: pointer;
 
-}
+} */
 .search{
   position: absolute; /*or fixed*/
   right: 1em;
@@ -117,4 +117,239 @@ h2 {
   color: #370617;
   text-align: center;
   padding-top: 2.5rem;
+}
+h2 {
+  font-size: 3em;
+  color: #370617;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+header {
+  background-image: url('/images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border: solid grey 2px;
+  border-radius: 20px;
+  height: 200px;
+  margin: 1em;
+}
+
+.navlinks {
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.navlinks a {
+  color: #cad2c5;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.navlinks a:hover {
+  color: #2e401c;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#username {
+  background-color: #eae0d5;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+
+
+.dropdown-menu {
+  background-color: #414833;
+  padding: 0;
+  margin: 0;
+}
+
+.dorpdown-item {
+  background-color: #414833;
+  border-color: #656d4a;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(68, 124, 255);
+  border-color: #656d4a;
+  cursor: pointer;
+}
+
+#shopping {
+  color: darkred;
+  font-weight: bold;
+  padding-left: 1rem;
+  padding-right: 0.7rem;
+}
+
+#deletBtn {
+  color: black;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#shoppingCart {
+  padding: 1.5rem;
+}
+
+#cartBorder {
+  border-radius: 1rem;
+  background-color: #eae0d5;
+}
+
+option {
+  color: #cad2c5;
+  background-color: #414833;
+  border-color: #656d4a;
+  text-align: left;
+  cursor: pointer;
+  padding: 2rem;
+}
+.image-link {
+  color: #cad2c5;
+  background-color: #414833;
+  border-color: #656d4a;
+  border-radius: 10px;
+  margin-right: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+}
+
+.image-link:hover,
+.image-link:focus {
+  color: #2e401c;
+  background-color: #bfab67;
+  border-color: #656d4a;
+  border-radius: 50px;
+  transition: 2s;
+}
+
+a.image-link {
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  color: #cad2c5;
+  background-color: #414833;
+  border-color: #656d4a;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #2e401c;
+  background-color: #bfab67;
+  border-color: #656d4a;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 60px 100px 0 rgb(0, 0, 0);
+  transform: translateY(-0.20em);
+}
+
+.badge badge-light {
+  background-color: #fff1e6;
+}
+
+img {
+  border-radius: 20px;
+}
+
+.card-img,
+.card-img-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-text {
+  color: grey;
+  width: 200px;
+  height: 90px;
+}
+
+.product_card:hover {
+  box-shadow: 0 60px 100px 0 rgba(36, 20, 20, 0.918);
+  background-color: rgb(65, 37, 2);
+  color: rgb(245, 240, 216);
+  border-radius: 30px;
+  transition: 1s;
+  transform: translateY(-0.25em);
+}
+
+a {
+  text-decoration: none;
+}
+
+h5 {
+  color: black;
+}
+
+.product_card:hover h5 {
+  color: white;
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
+  flex-wrap: wrap;
+}
+
+.total-quantity {
+  text-align: center;
+  font-weight: bold;
+}
+
+.disabledButton {
+  color: #2e401c;
+  background-color: #bfab67 !important;
+  border-color: #656d4a;
+  border-radius: 50px;
+}
+
+.onSale {
+  position: relative;
+  color: grey;
+}
+
+.onSale:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 2px solid;
+  border-color: rgba(243, 0, 0, 0.671);
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+
+.newPrice30 {
+  color: rgb(0, 149, 137);
+  font-weight: bold;
+}
+
+.newPrice50 {
+  color: rgb(0, 98, 190);
+  font-weight: bold;
+}
+
+#border {
+  border-color: lightgrey;
+  border-style: solid;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+#saleBorder {
+  border-color: rgba(0, 121, 111, 0.15) !important;
+  border-style: solid !important;
+  border-radius: 10px !important;
+  padding: 0.4rem;
 }

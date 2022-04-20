@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-products',
@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   totalPrice = 0;
   totalQuantity = 0;
   totalPriceNoSale = 0;
+
 
   products = [{
     name: "Simple and tasty",
@@ -1021,6 +1022,7 @@ export class ProductsComponent implements OnInit {
 },
 ];
 
+Products=localStorage.setItem("Products", JSON.stringify(this.products) );
 
 addToCart(product) {
   this.products.forEach(item => {
@@ -1043,13 +1045,11 @@ addToCart(product) {
           this.totalPrice += item.price;
           this.totalPriceNoSale += item.price;
         }
-        console.log(this.shoppingCart);
-        console.log(this.totalQuantity);
-        console.log(this.totalPrice);
 
-        // localStorage.setItem('totalQuantity', this.totalQuantity);
-        // localStorage.setItem('totalPrice', this.totalPrice);
-        // localStorage.setItem('totalPriceNoSale', this.totalPriceNoSale);
+        localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+        localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+        localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+        localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
 
 
       }else{
@@ -1059,33 +1059,32 @@ addToCart(product) {
             ele.stock--;
 
             this.totalQuantity++;
-            if (ele.onsale30) {
-              this.totalPrice += item.price-ele.price*30/100;
+            if (ele.onSale30) {
+              this.totalPrice += ele.price-(ele.price*30/100);
               this.totalPriceNoSale += ele.price;
 
 
-            } else if (ele.onsale50) {
-              this.totalPrice += item.price- ele.price*50/100;
+            } else if (ele.onSale50) {
+              this.totalPrice += ele.price- (ele.price*50/100);
               this.totalPriceNoSale += ele.price;
 
             } else {
               this.totalPrice += ele.price;
               this.totalPriceNoSale += ele.price;
             }
-            console.log(this.shoppingCart);
-            console.log(this.totalQuantity);
-            console.log(this.totalPrice);
 
-            // localStorage.setItem('totalQuantity', this.totalQuantity);
-            // localStorage.setItem('totalPrice', parseFloat(this.totalPrice));
-            // localStorage.setItem('totalPriceNoSale', parseFloat(this.totalPriceNoSale));
+            localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+            localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+            localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+            localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
 
-          }
+        }
         })
       }
     }
   })
 }
+
 
   constructor() {
   }
