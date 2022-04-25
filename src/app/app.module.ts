@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
@@ -12,6 +13,11 @@ import { ServersComponent } from './servers/servers.component';
 import { ProductsComponent } from './products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailComponent } from './detail/detail.component';
+
+const appRoutes: Routes = [
+  { path: '', component: ProductsComponent },
+  { path: 'detail/:id', component: DetailComponent },
+]
 
 @NgModule({
   declarations: [
@@ -30,6 +36,7 @@ import { DetailComponent } from './detail/detail.component';
     BrowserModule,
     FormsModule,
     NgbModule,
+    RouterModule.forRoot(appRoutes)
   ],
 
   providers: [],
