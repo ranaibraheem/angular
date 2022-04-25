@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   totalPrice = 0;
   totalQuantity = 0;
   totalPriceNoSale = 0;
+  productindex=0;
 
 
   products = [{
@@ -1085,6 +1086,11 @@ addToCart(product) {
   })
 }
 
+detail(index){
+  this.productindex === index;
+  localStorage.setItem('productindex', JSON.stringify(index));
+  console.log(index);
+}
 
   constructor() {
   }

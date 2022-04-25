@@ -11,6 +11,7 @@ import { CartComponent } from './cart/cart.component';
 import { ServersComponent } from './servers/servers.component';
 import { ProductsComponent } from './products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CartComponent,
     ServersComponent,
     ProductsComponent,
+    DetailComponent,
     ],
 
   imports: [

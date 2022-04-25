@@ -6,7 +6,6 @@ body {
   border: solid lightgrey 1px;
   background-image: url('/assets/images/bodybg.jpg');
   /* Photo by Monstera from Pexels */
-
 }
 .modal-content {
   position: relative;
