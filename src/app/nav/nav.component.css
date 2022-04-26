@@ -1,5 +1,6 @@
 nav {
   background-image: url('/assets/images/background.jpg');
+  opacity: 0.8;
   /*Photo by Maria Orlova from Pexels*/
   background-repeat: no-repeat;
   background-size: 100% 100%;

@@ -18,5 +18,5 @@ export class AppComponent{
   totalPriceNoSale=JSON.parse(localStorage.getItem('totalPriceNoSale')) || 0;
 
   totalPrice=JSON.parse(localStorage.getItem("totalPrice")) || 0;
-
+  productindex=JSON.parse(localStorage.getItem("productindex")) || 0;
 }

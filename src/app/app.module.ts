@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
@@ -11,6 +12,16 @@ import { CartComponent } from './cart/cart.component';
 import { ServersComponent } from './servers/servers.component';
 import { ProductsComponent } from './products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DetailComponent } from './detail/detail.component';
+import { HomeComponent } from './home/home.component';
+import { MachinesComponent } from './machines/machines.component';
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'detail/:id', component: DetailComponent },
+  { path: 'machines', component: MachinesComponent },
+]
 
 @NgModule({
   declarations: [
@@ -22,12 +33,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CartComponent,
     ServersComponent,
     ProductsComponent,
+    DetailComponent,
+    HomeComponent,
+    MachinesComponent,
     ],
 
   imports: [
     BrowserModule,
     FormsModule,
     NgbModule,
+    RouterModule.forRoot(appRoutes)
   ],
 
   providers: [],

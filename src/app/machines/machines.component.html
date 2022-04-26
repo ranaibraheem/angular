@@ -1,6 +1,9 @@
-<div>
-  <div class="products block">
-    <div class="product_card card container-fluid col-md-5" *ngFor="let product of products; let index=index;">
+
+<app-nav></app-nav>
+<app-header></app-header>
+<div class="container-fluid block">
+  <div  *ngFor="let product of products; let index=index;">
+    <div class="container-fluid products block product_card card" *ngIf="product.category==='machines'">
       <a [href]="imagePath+product.image">
         <img [src]="imagePath+product.image" class="card-img-top" >
       </a>
@@ -25,7 +28,7 @@
           <button class="btn btn-primary" (click)="detail(index)">Detail</button>
         </a>
       </div>
-
     </div>
   </div>
 </div>
+<app-footer></app-footer>
