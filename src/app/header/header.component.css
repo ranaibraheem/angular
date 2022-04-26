@@ -1,6 +1,6 @@
 header {
   border: lightgrey solid 2px;
-  background-color: rgb(65, 37, 2);
+  background-color: rgba(30, 17, 0, 0.648);
   font-weight: bold;
   border-radius: 20px;
   margin: 1em;
@@ -14,4 +14,23 @@ h1 {
   font-size: 2em;
   padding: 1rem;
 
+}
+.btn-primary {
+  color: #cad2c5;
+  background-color: #414833;
+  border-color: #656d4a;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #2e401c;
+  background-color: #bfab67;
+  border-color: #656d4a;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 60px 100px 0 rgb(0, 0, 0);
+  transform: translateY(-0.20em);
 }

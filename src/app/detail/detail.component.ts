@@ -13,15 +13,17 @@ export class DetailComponent implements OnInit {
 
   productindex=JSON.parse(localStorage.getItem('productindex')) || 0;
 
+  cartIcon = "&#x1F6D2;";
   shoppingCart = [];
   totalPrice = 0;
   totalQuantity = 0;
   totalPriceNoSale = 0;
+  detailProduct=this.Products[this.productindex];
 
 
-  addToCart(product) {
+  addToCart(detailProduct) {
     this.Products.forEach(item => {
-      if(item.id === product.id && item.stock>0){
+      if(item.id === detailProduct.id && item.stock>0){
         if(!this.shoppingCart.some(elem => elem.id === item.id)){
           this.shoppingCart.push(item);
           this.totalQuantity++;
@@ -49,7 +51,7 @@ export class DetailComponent implements OnInit {
 
         }else{
           this.shoppingCart.forEach(ele => {
-            if(ele.id === product.id && ele.stock>0){
+            if(ele.id === detailProduct.id && ele.stock>0){
               ele.quantity++;
               ele.stock--;
 

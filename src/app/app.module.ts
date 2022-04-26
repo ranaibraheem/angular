@@ -13,10 +13,14 @@ import { ServersComponent } from './servers/servers.component';
 import { ProductsComponent } from './products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailComponent } from './detail/detail.component';
+import { HomeComponent } from './home/home.component';
+import { MachinesComponent } from './machines/machines.component';
 
 const appRoutes: Routes = [
-  { path: '', component: ProductsComponent },
+  { path: '', component: HomeComponent },
+  { path: 'products', component: ProductsComponent },
   { path: 'detail/:id', component: DetailComponent },
+  { path: 'machines', component: MachinesComponent },
 ]
 
 @NgModule({
@@ -30,6 +34,8 @@ const appRoutes: Routes = [
     ServersComponent,
     ProductsComponent,
     DetailComponent,
+    HomeComponent,
+    MachinesComponent,
     ],
 
   imports: [

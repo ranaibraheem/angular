@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  selector: 'app-machines',
+  templateUrl: './machines.component.html',
+  styleUrls: ['./machines.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class MachinesComponent implements OnInit {
   imagePath = 'assets/images/';
   cartIcon = "&#x1F6D2;";
   shoppingCart = [];
@@ -1092,8 +1092,7 @@ detail(index){
   console.log(index);
 }
 
-  constructor() {
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }

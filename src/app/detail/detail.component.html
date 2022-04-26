@@ -1,26 +1,31 @@
- <div *ngIf="Products[productindex]">
-      <div class="container-fluid products block" style="padding:2em">
-          <img id="detailImage" [src]="imagePath + Products[productindex].image" class="col-5"  height="700px">
+ <div class="container-fluid detailPage">
+ <app-nav></app-nav>
+ <app-header></app-header>
+ <div *ngIf="detailProduct">
+      <div class="products block" style="padding:2em">
+          <img id="detailImage" [src]="imagePath + detailProduct.image" class="col-5"  height="700px">
           <div class="col-5" id="detail" style="padding:2em">
-              <h3><b>Name: </b> {{Products[productindex].name}} </h3>
-              <h3> {{Products[productindex].info}} </h3><hr>
-              <h4><b>Description: </b><br> {{Products[productindex].text}}</h4><hr>
+              <h3><b>Name: </b> {{detailProduct.name}} </h3>
+              <h3> {{detailProduct.info}} </h3><hr>
+              <h4><b>Description: </b><br> {{detailProduct.text}}</h4><hr>
 
-              <h3 *ngIf="Products[productindex].onSale30"><b>Sale 30%</b><br>
-                  <b>Old Price: </b><span class="onSale">{{Products[productindex].price}}$</span><br>
-                  <span class="newPrice30"> New Price: <b>{{Products[productindex].price-Products[productindex].price*30/100}}$</b></span><hr>
+              <h3 *ngIf="detailProduct.onSale30"><b>Sale 30%</b><br>
+                  <b>Old Price: </b><span class="onSale">{{detailProduct.price}}$</span><br>
+                  <span class="newPrice30"> New Price: <b>{{detailProduct.price-detailProduct.price*30/100}}$</b></span><hr>
               </h3>
-              <h3 *ngIf="Products[productindex].onSale50"><b>Sale 50%</b>
-                  <span class="onSale">{{Products[productindex].price}}$</span><br>
-                  <span class="newPrice50"> New Price: <b>{{Products[productindex].price-Products[productindex].price*50/100}}$</b></span><hr>
+              <h3 *ngIf="detailProduct.onSale50"><b>Sale 50%</b>
+                  <span class="onSale">{{detailProduct.price}}$</span><br>
+                  <span class="newPrice50"> New Price: <b>{{detailProduct.price-detailProduct.price*50/100}}$</b></span><hr>
               </h3>
-              <h3 *ngIf="!Products[productindex].onSale30 && !Products[productindex].onSale50">Price: {{Products[productindex].price}}$</h3>
-              <h3 class="soldOut" *ngIf="Products[productindex].stock===0">Sold Out</h3>
-              <h3 class="soldOut" *ngIf="Products[productindex].stock<=5 && Products[productindex].stock>0">Almost Sold Out</h3>
-              <h3 *ngIf="Products[productindex].stock>5">In Stock </h3>
+              <h3 *ngIf="!detailProduct.onSale30 && !detailProduct.onSale50">Price: {{detailProduct.price}}$</h3>
+              <h3 class="soldOut" *ngIf="detailProduct.stock===0">Sold Out</h3>
+              <h3 class="soldOut" *ngIf="detailProduct.stock<=5 && detailProduct.stock>0">Almost Sold Out</h3>
+              <h3 *ngIf="detailProduct.stock>5">In Stock </h3>
               <h3>
-                  <button class="addToCart btn btn-primary" (click)="addToCart(Products[productindex])"><h4>Order &#x1F6D2;</h4></button>
+                  <button class="addToCart btn btn-primary" (click)="addToCart(detailProduct)"><h4>Order <span [innerHTML]="cartIcon"></span> </h4></button>
               </h3>
           </div>
       </div>
+</div>
+<app-footer></app-footer>
 </div>
