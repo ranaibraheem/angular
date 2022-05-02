@@ -2,8 +2,9 @@
 body {
   display: inline-block;
   margin: auto;
-  padding: 0px;
+  /* padding: 0px; */
   border: solid lightgrey 1px;
+  width: 100%;
   background-image: url('/assets/images/bodybg.jpg');
   /* Photo by Monstera from Pexels */
 }

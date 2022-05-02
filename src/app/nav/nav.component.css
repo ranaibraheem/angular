@@ -60,9 +60,18 @@ nav {
   border-radius: 10px;
   margin: 0.5rem;
   transition: background-color 200ms ease-in-out;
-
-
 }
+.btn-primary:hover,
+.btn-primary:focus {
+    color: #2e401c;
+    background-color: #bfab67;
+    border-color: #656d4a;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 60px 100px 0 rgb(0, 0, 0);
+    transform: translateY(-0.20em);
+}
+
 
 
 
@@ -119,3 +128,14 @@ h2 {
   text-align: center;
   padding-top: 2.5rem;
 }
+.fixLink{
+  text-decoration: none;
+  color: #cad2c5;
+  font-size: 1rem;
+  text-align:center;
+}
+.fixLink:hover,
+.fixLink:focus{
+  color:#2e401c !important;
+}
+
