@@ -52,7 +52,7 @@ nav {
   transition: background-color 200ms ease-in-out;
 
 }
-.btn-primary {
+/* .btn-primary {
   color: #cad2c5;
   background-color: #414833;
   border-color: #656d4a;
@@ -61,7 +61,7 @@ nav {
   transition: background-color 200ms ease-in-out;
 
 
-}
+} */
 
 
 
@@ -229,25 +229,6 @@ a.image-link {
   font-size: 1rem;
 }
 
-.btn-primary {
-  color: #cad2c5;
-  background-color: #414833;
-  border-color: #656d4a;
-  border-radius: 10px;
-  margin-left: 0.5rem;
-  transition: background-color 200ms ease-in-out;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  color: #2e401c;
-  background-color: #bfab67;
-  border-color: #656d4a;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 60px 100px 0 rgb(0, 0, 0);
-  transform: translateY(-0.20em);
-}
 
 .badge badge-light {
   background-color: #fff1e6;
@@ -303,11 +284,11 @@ h5 {
   font-weight: bold;
 }
 
-.disabledButton {
-  color: #2e401c;
+.disabledButton{
+  color: #2e401c !important;
   background-color: #bfab67 !important;
-  border-color: #656d4a;
-  border-radius: 50px;
+  border-color: #656d4a !important;
+  border-radius: 50px !important;
 }
 
 .onSale {
@@ -352,4 +333,26 @@ h5 {
   border-style: solid !important;
   border-radius: 10px !important;
   padding: 0.4rem;
+}
+.centerNumber{
+  padding-left: 0.5em;
+}
+.btn-primary {
+  color: #cad2c5;
+  background-color: #414833;
+  border-color: #656d4a;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  color: #2e401c;
+  background-color: #bfab67;
+  border-color: #656d4a;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 60px 100px 0 rgb(0, 0, 0);
+  transform: translateY(-0.20em);
 }
