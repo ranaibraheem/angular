@@ -8,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class MachinesComponent implements OnInit {
   imagePath = 'assets/images/';
   cartIcon = "&#x1F6D2;";
-  shoppingCart = [];
-  totalPrice = 0;
-  totalQuantity = 0;
-  totalPriceNoSale = 0;
+  // shoppingCart = [];
+  // totalPrice = 0;
+  // totalQuantity = 0;
+  // totalPriceNoSale = 0;
   productindex=0;
+  totalPrice =JSON.parse(localStorage.getItem('totalPrice')) || 0;
+  shoppingCart=JSON.parse(localStorage.getItem('shoppingCart')) || [];
+  totalQuantity=JSON.parse(localStorage.getItem('totalQuantity')) || 0;
+  totalPriceNoSale=JSON.parse(localStorage.getItem('totalPriceNoSale')) || 0;
+
 
 
   products = [{
@@ -1047,10 +1052,18 @@ addToCart(product) {
           this.totalPriceNoSale += item.price;
         }
 
-        localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
-        localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
-        localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-        localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+        if(window.localStorage.shoppingCart=[]){
+          localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+          localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+          localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+          localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+
+        } else{
+          JSON.parse(window.localStorage.getItem('shoppingCart'));
+          JSON.parse(window.localStorage.getItem('totalQuantity'));
+          JSON.parse(window.localStorage.getItem('totalPrice'));
+          JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
+        }
 
 
       }else{
@@ -1074,10 +1087,18 @@ addToCart(product) {
               this.totalPriceNoSale += ele.price;
             }
 
-            localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
-            localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
-            localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-            localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+            if(window.localStorage.shoppingCart=[]){
+              localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+              localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+              localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+              localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+
+            } else{
+              JSON.parse(window.localStorage.getItem('shoppingCart'));
+              JSON.parse(window.localStorage.getItem('totalQuantity'));
+              JSON.parse(window.localStorage.getItem('totalPrice'));
+              JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
+            }
 
         }
         })
@@ -1095,6 +1116,11 @@ detail(index){
   constructor() { }
 
   ngOnInit(): void {
+    localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+    localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+    localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+    localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+
   }
 
 }

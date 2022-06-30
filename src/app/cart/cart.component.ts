@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -16,7 +16,6 @@ export class CartComponent {
   totalQuantity=JSON.parse(localStorage.getItem('totalQuantity')) || 0;
   totalPriceNoSale=JSON.parse(localStorage.getItem('totalPriceNoSale')) || 0;
   Products=JSON.parse(localStorage.getItem('Products')) || [];
-
 
   typeof(Products){
     return console.log(typeof Products);
@@ -45,9 +44,19 @@ export class CartComponent {
     localStorage.totalQuantity = this.totalQuantity
     localStorage.totalPrice = this.totalPrice
     localStorage.totalPriceNoSale = this.totalPriceNoSale
-    localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
-    localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-    localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+    if(window.localStorage.shoppingCart=[]){
+      localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+      localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+      localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+      localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+
+    } else{
+      JSON.parse(window.localStorage.getItem('shoppingCart'));
+      JSON.parse(window.localStorage.getItem('totalQuantity'));
+      JSON.parse(window.localStorage.getItem('totalPrice'));
+      JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
+    }
+
 
   }
 
@@ -85,9 +94,19 @@ export class CartComponent {
             this.totalPrice += cart.price;
             this.totalPriceNoSale += cart.price;
           }
-          localStorage.setItem('totalQuantity', this.totalQuantity)
-          localStorage.setItem('totalPrice', this.totalPrice)
-          localStorage.setItem('totalPriceNoSale', this.totalPriceNoSale);
+          if(window.localStorage.shoppingCart=[]){
+            localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+            localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+            localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+            localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+
+          } else{
+            JSON.parse(window.localStorage.getItem('shoppingCart'));
+            JSON.parse(window.localStorage.getItem('totalQuantity'));
+            JSON.parse(window.localStorage.getItem('totalPrice'));
+            JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
+          }
+
 
         }else{
           if(cart.quantity>1){
@@ -137,6 +156,13 @@ export class CartComponent {
   closeResult: string;
 
   constructor(private modalService: NgbModal) {}
+  ngOnInit() {
+    console.log(localStorage.getItem('totalPrice'));
+    localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+    localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
+    localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+    localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+  }
 
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {

@@ -1,10 +1,8 @@
 <nav class="sticky-top">
-  <a class="fixLink" [href]="''"><h2 [innerHTML]="title"></h2></a>
-
+  <a class="fixLink" routerLink="/"><h2 [innerHTML]="title"></h2></a>
   <div class="container-fluid" class="navlinks">
-    <a href="login" class="logIn btn btn-primary fixLink">LOG IN</a>
-    <a href="" class="logIn btn btn-primary fixLink">Home</a>
-
-<app-cart></app-cart>
+    <a routerLink="/login" class="logIn btn btn-primary fixLink">LOG IN</a>
+    <a routerLink="/" class="logIn btn btn-primary fixLink">Home</a>
+    <app-cart></app-cart>
   </div>
 </nav>

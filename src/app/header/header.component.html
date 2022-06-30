@@ -1,24 +1,15 @@
 <header>
   <h1 [innerHTML]="title + ' ' + info"></h1>
   <button class="btn btn-primary">
-    <a class="fixlink" href="machines">Machines</a>
-
-      <!-- <select name="demo" id="#">
-        <option selected="selected" value="all">All Products</option>
-        <option value="machines">Machines</option>
-        <option value="beans">Beans</option>
-        <option value="cups">Cups</option>
-        </select> -->
+    <a class="fixlink" routerLink="/">All Products</a>
   </button>
   <button class="btn btn-primary">
-    <a class="fixlink" href="beans">
-      Beans
-    </a>
+    <a class="fixlink" routerLink="/machines">Machines</a>
   </button>
   <button class="btn btn-primary">
-    <a class="fixlink"  href="cups">
-      Cups
-    </a>
+    <a class="fixlink" routerLink="/beans">Beans</a>
   </button>
-
+  <button class="btn btn-primary">
+    <a class="fixlink"  routerLink="/cups">Cups</a>
+  </button>
 </header>

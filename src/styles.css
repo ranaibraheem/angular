@@ -20,3 +20,6 @@ body {
   border-radius: 2rem;
   outline: 0;
 }
+:root{
+  overflow-x:hidden;
+}

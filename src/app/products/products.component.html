@@ -1,9 +1,7 @@
 <div>
   <div class="products block">
     <div class="product_card card container-fluid col-md-5" *ngFor="let product of products; let index=index;">
-      <a [href]="imagePath+product.image">
-        <img [src]="imagePath+product.image" class="card-img-top" >
-      </a>
+      <img [src]="imagePath+product.image" class="card-img-top" >
       <div class="cart-body">
         <h5>{{product.name}}</h5><hr>
           <p *ngIf="product.onSale30">
@@ -21,11 +19,10 @@
         <p *ngIf="product.stock>5">In Stock</p>
         <span [innerHTML]="cartIcon"></span>
         <button class="addToCart btn btn-primary" (click)="addToCart(product)" [disabled]="product.stock==0">Add to Cart</button>
-        <a [href]="'detail/'+product.id">
+        <a [routerLink]="'/detail/'+product.id">
           <button class="btn btn-primary" (click)="detail(index)">Detail</button>
         </a>
       </div>
-
     </div>
   </div>
 </div>
