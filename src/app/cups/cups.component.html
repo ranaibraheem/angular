@@ -1,11 +1,10 @@
 <app-nav></app-nav>
 <app-header></app-header>
+<h3>CUPS</h3>
 <div class="container-fluid block">
   <div  *ngFor="let product of products; let index=index;">
     <div class="container-fluid products block product_card card" *ngIf="product.category==='cups'">
-      <a [href]="imagePath+product.image">
-        <img [src]="imagePath+product.image" class="card-img-top" >
-      </a>
+      <img [src]="imagePath+product.image" class="card-img-top" >
       <div class="cart-body">
         <h5>{{product.name}}</h5><hr>
           <p *ngIf="product.onSale30">
@@ -23,7 +22,7 @@
         <p *ngIf="product.stock>5">In Stock</p>
         <span [innerHTML]="cartIcon"></span>
         <button class="addToCart btn btn-primary" (click)="addToCart(product)" [disabled]="product.stock==0">Add to Cart</button>
-        <a [href]="'detail/'+product.id">
+        <a [routerLink]="'/detail/'+product.id">
           <button class="btn btn-primary" (click)="detail(index)">Detail</button>
         </a>
       </div>
