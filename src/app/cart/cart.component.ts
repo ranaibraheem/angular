@@ -44,20 +44,18 @@ export class CartComponent {
     localStorage.totalQuantity = this.totalQuantity
     localStorage.totalPrice = this.totalPrice
     localStorage.totalPriceNoSale = this.totalPriceNoSale
+
     if(window.localStorage.shoppingCart=[]){
       localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
       localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
       localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
       localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
-
     } else{
       JSON.parse(window.localStorage.getItem('shoppingCart'));
       JSON.parse(window.localStorage.getItem('totalQuantity'));
       JSON.parse(window.localStorage.getItem('totalPrice'));
       JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
     }
-
-
   }
 
   remove() {
@@ -73,7 +71,8 @@ export class CartComponent {
     localStorage.removeItem('totalQuantity');
     localStorage.removeItem('totalPrice');
     localStorage.removeItem('shoppingCart');
-    localStorage.removeItem('totalPriceNoSale')
+    localStorage.removeItem('totalPriceNoSale');
+    localStorage.clear();
   }
 
   updateItem(product, index, updateType){
@@ -85,14 +84,14 @@ export class CartComponent {
           cart.stock--;
           this.totalQuantity++;
           if(cart.onSale30){
-            this.totalPrice +=cart.price - cart.price*30/100;
-            this.totalPriceNoSale += cart.price;
+            this.totalPrice +=cart.price.toFixed(2) - cart.price.toFixed(2)*30/100;
+            this.totalPriceNoSale += cart.price.toFixed(2);
           }else if(cart.onSale50){
-            this.totalPrice += cart.price - cart.price*50/100;
-            this.totalPriceNoSale += cart.price;
+            this.totalPrice += cart.price.toFixed(2) - cart.price.toFixed(2)*50/100;
+            this.totalPriceNoSale += cart.price.toFixed(2);
           }else{
-            this.totalPrice += cart.price;
-            this.totalPriceNoSale += cart.price;
+            this.totalPrice += cart.price.toFixed(2);
+            this.totalPriceNoSale += cart.price.toFixed(2);
           }
           if(window.localStorage.shoppingCart=[]){
             localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
@@ -107,22 +106,21 @@ export class CartComponent {
             JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
           }
 
-
         }else{
           if(cart.quantity>1){
             this.totalQuantity--;
             cart.quantity--;
             cart.stock++;
             if(cart.onSale30){
-              this.totalPrice -= cart.price - cart.price*30/100;
-              this.totalPriceNoSale -= cart.price;
+              this.totalPrice -= cart.price.toFixed(2) - cart.price.toFixed(2)*30/100;
+              this.totalPriceNoSale -= cart.price.toFixed(2);
             }else if(cart.onSale50){
-              this.totalPrice -= cart.price - cart.price*50/100;
-              this.totalPriceNoSale -= cart.price;
+              this.totalPrice -= cart.price.toFixed(2) - cart.price.toFixed(2)*50/100;
+              this.totalPriceNoSale -= cart.price.toFixed(2);
 
             }else{
-              this.totalPrice -= cart.price;
-              this.totalPriceNoSale -= cart.price;
+              this.totalPrice -= cart.price.toFixed(2);
+              this.totalPriceNoSale -= cart.price.toFixed(2);
             }
           }else{
             this.shoppingCart.splice(index, 1);
@@ -130,16 +128,16 @@ export class CartComponent {
             cart.quantity--;
             cart.stock++;
             if(cart.onSale30){
-              this.totalPrice -= cart.price - cart.price*30/100;
-              this.totalPriceNoSale -= cart.price;
+              this.totalPrice -= cart.price.toFixed(2) - cart.price.toFixed(2)*30/100;
+              this.totalPriceNoSale -= cart.price.toFixed(2);
 
             }else if(cart.onSale50){
-              this.totalPrice -= cart.price - cart.price*50/100;
-              this.totalPriceNoSale -= cart.price;
+              this.totalPrice -= cart.price.toFixed(2) - cart.price.toFixed(2)*50/100;
+              this.totalPriceNoSale -= cart.price.toFixed(2);
 
             }else{
-              this.totalPrice -= cart.price;
-              this.totalPriceNoSale -= cart.price;
+              this.totalPrice -= cart.price.toFixed(2);
+              this.totalPriceNoSale -= cart.price.toFixed(2);
             }
           }
           localStorage.removeItem('shoppingCart');
@@ -147,21 +145,27 @@ export class CartComponent {
           localStorage.totalPrice = this.totalPrice
           localStorage.totalPriceNoSale = this.totalPriceNoSale;
         }
+
       }
     })
   }
 
-
-
   closeResult: string;
 
   constructor(private modalService: NgbModal) {}
+
   ngOnInit() {
+    localStorage.getItem('shoppingCart');
+    localStorage.getItem('totalQuantity');
+    localStorage.getItem('totalPrice');
+    localStorage.getItem('totalPriceNoSale');
+
     console.log(localStorage.getItem('totalPrice'));
     localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
     localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
     localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-    localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+    localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale));
+
   }
 
   open(content) {
@@ -181,6 +185,5 @@ export class CartComponent {
       return  `with: ${reason}`;
     }
   }
-
 }
 
