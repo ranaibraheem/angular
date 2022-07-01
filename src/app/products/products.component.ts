@@ -1063,7 +1063,6 @@ addToCart(product) {
           JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
         }
 
-
       }else{
         this.shoppingCart.forEach(ele => {
           if(ele.id === product.id && ele.stock>0){
@@ -1097,7 +1096,7 @@ addToCart(product) {
               JSON.parse(window.localStorage.getItem('totalPrice'));
               JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
             }
-        }
+          }
         })
       }
     }
@@ -1115,9 +1114,14 @@ detail(index){
 
   ngOnInit(): void {
     localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
+    console.log(this.shoppingCart);
     localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
-    localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-    localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
-  }
+    console.log(this.totalQuantity);
 
+    localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
+    console.log(this.totalPrice);
+
+    localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+    console.log(this.totalPriceNoSale);
+  }
 }

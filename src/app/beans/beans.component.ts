@@ -1096,8 +1096,7 @@ addToCart(product) {
               JSON.parse(window.localStorage.getItem('totalPrice'));
               JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
             }
-
-        }
+          }
         })
       }
     }
@@ -1118,7 +1117,5 @@ detail(index){
     localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
     localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
     localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
-
   }
-
 }
