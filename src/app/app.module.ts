@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 
+
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { NavComponent } from './nav/nav.component';
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'cups', component: CupsComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'cart', component: CartComponent}
 ]
 @NgModule({
   declarations: [

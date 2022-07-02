@@ -152,7 +152,9 @@ export class CartComponent {
 
   closeResult: string;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    ) {}
 
   ngOnInit() {
     localStorage.getItem('shoppingCart');

@@ -1085,11 +1085,14 @@ addToCart(product) {
             }
 
             if(window.localStorage.shoppingCart=[]){
-              localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
-              localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
-              localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-              localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
-
+              localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart));
+              console.log(this.shoppingCart);
+              localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity));
+              console.log(this.totalQuantity);
+              localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice));
+              console.log(this.totalPrice);
+              localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale));
+              console.log(this.totalPriceNoSale);
             } else{
               JSON.parse(window.localStorage.getItem('shoppingCart'));
               JSON.parse(window.localStorage.getItem('totalQuantity'));
@@ -1109,7 +1112,8 @@ detail(index){
   console.log(index);
 }
 
-  constructor() {
+  constructor(
+  ) {
   }
 
   ngOnInit(): void {
