@@ -1030,8 +1030,8 @@ Products=localStorage.setItem("Products", JSON.stringify(this.products) );
 addToCart(product) {
   this.products.forEach(item => {
     if(item.id === product.id && item.stock>0){
-      if(!this.shoppingCart.includes(item.id)){
-      // if(!this.shoppingCart.some(elem => elem.id === item.id)){
+      // if(!this.shoppingCart.includes(item.id)){
+      if(!this.shoppingCart.some(elem => elem.id === item.id)){
         this.shoppingCart.push(item);
         this.totalQuantity++;
 

@@ -84,14 +84,14 @@ export class CartComponent {
           cart.stock--;
           this.totalQuantity++;
           if(cart.onSale30){
-            this.totalPrice +=cart.price.toFixed(2) - cart.price.toFixed(2)*30/100;
-            this.totalPriceNoSale += cart.price.toFixed(2);
+            this.totalPrice +=cart.price - cart.price*30/100;
+            this.totalPriceNoSale += cart.price;
           }else if(cart.onSale50){
-            this.totalPrice += cart.price.toFixed(2) - cart.price.toFixed(2)*50/100;
-            this.totalPriceNoSale += cart.price.toFixed(2);
+            this.totalPrice += cart.price - cart.price*50/100;
+            this.totalPriceNoSale += cart.price;
           }else{
-            this.totalPrice += cart.price.toFixed(2);
-            this.totalPriceNoSale += cart.price.toFixed(2);
+            this.totalPrice += cart.price;
+            this.totalPriceNoSale += cart.price;
           }
           if(window.localStorage.shoppingCart=[]){
             localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
@@ -112,15 +112,15 @@ export class CartComponent {
             cart.quantity--;
             cart.stock++;
             if(cart.onSale30){
-              this.totalPrice -= cart.price.toFixed(2) - cart.price.toFixed(2)*30/100;
-              this.totalPriceNoSale -= cart.price.toFixed(2);
+              this.totalPrice -= cart.price - cart.price*30/100;
+              this.totalPriceNoSale -= cart.price;
             }else if(cart.onSale50){
-              this.totalPrice -= cart.price.toFixed(2) - cart.price.toFixed(2)*50/100;
-              this.totalPriceNoSale -= cart.price.toFixed(2);
+              this.totalPrice -= cart.price - cart.price*50/100;
+              this.totalPriceNoSale -= cart.price;
 
             }else{
-              this.totalPrice -= cart.price.toFixed(2);
-              this.totalPriceNoSale -= cart.price.toFixed(2);
+              this.totalPrice -= cart.price;
+              this.totalPriceNoSale -= cart.price;
             }
           }else{
             this.shoppingCart.splice(index, 1);
@@ -128,16 +128,16 @@ export class CartComponent {
             cart.quantity--;
             cart.stock++;
             if(cart.onSale30){
-              this.totalPrice -= cart.price.toFixed(2) - cart.price.toFixed(2)*30/100;
-              this.totalPriceNoSale -= cart.price.toFixed(2);
+              this.totalPrice -= cart.price - cart.price*30/100;
+              this.totalPriceNoSale -= cart.price;
 
             }else if(cart.onSale50){
-              this.totalPrice -= cart.price.toFixed(2) - cart.price.toFixed(2)*50/100;
-              this.totalPriceNoSale -= cart.price.toFixed(2);
+              this.totalPrice -= cart.price - cart.price*50/100;
+              this.totalPriceNoSale -= cart.price;
 
             }else{
-              this.totalPrice -= cart.price.toFixed(2);
-              this.totalPriceNoSale -= cart.price.toFixed(2);
+              this.totalPrice -= cart.price;
+              this.totalPriceNoSale -= cart.price;
             }
           }
           localStorage.removeItem('shoppingCart');
