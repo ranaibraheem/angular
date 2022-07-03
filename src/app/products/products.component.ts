@@ -13,9 +13,6 @@ export class ProductsComponent implements OnInit {
   shoppingCart=JSON.parse(localStorage.getItem('shoppingCart')) || [];
   totalQuantity=JSON.parse(localStorage.getItem('totalQuantity')) || 0;
   totalPriceNoSale=JSON.parse(localStorage.getItem('totalPriceNoSale')) || 0;
-  // Products=JSON.parse(localStorage.getItem('Products')) || [];
-
-
 
   products = [{
     name: "Simple and tasty",

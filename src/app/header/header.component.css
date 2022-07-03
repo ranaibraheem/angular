@@ -42,6 +42,20 @@ h1 {
 }
 .fixlink:hover,
 .fixlink:focus{
-  color:#2e401c;
+  color:#cad2c5;
 }
 
+*, ::after, ::before{
+  box-sizing:unset;
+  color:white;
+  border:none;
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+::ng-deep .mat-select:focus .mat-select-trigger .mat-select-arrow {
+  color: white;
+}
+::ng-deep .mat-option {
+  color: white !important
+ }
