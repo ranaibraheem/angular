@@ -54,13 +54,13 @@
       <h5 class="modal-title" id="staticBackdropLabel">Total:</h5>
       <ul id="shoppingCart">
         <li> <span id="shopping">Total Price:</span>
-          <span><b>$ {{totalPrice}}</b></span>
+          <span><b>$ {{totalPrice.toFixed(2)}}</b></span>
         </li>
         <span style="color:grey">
-          <small>Total before discount: $ {{totalPriceNoSale}}</small>
+          <small>Total before discount: $ {{totalPriceNoSale.toFixed(2)}}</small>
         </span><br>
         <span style="color:grey">
-          <small>Total discount: $ {{totalPriceNoSale - totalPrice}}</small>
+          <small>Total discount: $ {{(totalPriceNoSale - totalPrice).toFixed(2)}}</small>
         </span><hr>
         <li><span id="shopping">Remove All:</span>
           <i class="fa fa-trash-o" id="deletBtn" (click)="remove()" ></i>

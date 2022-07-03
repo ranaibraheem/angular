@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "myangular": {
+    "Cherkkoffie": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/myangular",
+            "outputPath": "dist/Cherkkoffie",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "myangular:build:production"
+              "browserTarget": "Cherkkoffie:build:production"
             },
             "development": {
-              "browserTarget": "myangular:build:development"
+              "browserTarget": "Cherkkoffie:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "myangular:build"
+            "browserTarget": "Cherkkoffie:build"
           }
         },
         "test": {
@@ -100,5 +100,5 @@
       }
     }
   },
-  "defaultProject": "myangular"
+  "defaultProject": "Cherkkoffie"
 }

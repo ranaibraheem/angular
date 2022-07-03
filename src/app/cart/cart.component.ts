@@ -68,10 +68,10 @@ export class CartComponent {
     this.totalQuantity = 0;
     this.totalPriceNoSale = 0;
 
-    localStorage.removeItem('totalQuantity');
-    localStorage.removeItem('totalPrice');
-    localStorage.removeItem('shoppingCart');
-    localStorage.removeItem('totalPriceNoSale');
+    // localStorage.removeItem('totalQuantity');
+    // localStorage.removeItem('totalPrice');
+    // localStorage.removeItem('shoppingCart');
+    // localStorage.removeItem('totalPriceNoSale');
     localStorage.clear();
   }
 
