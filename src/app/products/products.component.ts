@@ -1,4 +1,3 @@
-import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -1155,8 +1154,18 @@ detail(index){
   localStorage.setItem('productindex', JSON.stringify(index));
   console.log(index);
 }
-
-machinesFilter(){
+// filterProduct() {
+//   if (this.product_filter == 'all') {
+//     this.products.forEach(element => {
+//       element.show = true;
+//     });
+//   } else {
+//     this.products.forEach(element => {
+//       element.show = element.category != this.product_filter ? false : true;
+//     });
+//   }
+// },
+filter(){
   this.products.forEach(element=>{
     if(element.category=='machines'){
       if(!this.machines.some(elem => elem === element)){
@@ -1174,7 +1183,9 @@ machinesFilter(){
       this.products=this.products;
     }
   })
-  // localStorage.setItem("machines", JSON.stringify(this.machines) );
+  localStorage.setItem("machines", JSON.stringify(this.machines) );
+  localStorage.setItem("beans", JSON.stringify(this.beans) );
+  localStorage.setItem("cups", JSON.stringify(this.cups) );
 }
 
   constructor(
