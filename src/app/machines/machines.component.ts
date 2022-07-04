@@ -1028,7 +1028,6 @@ export class MachinesComponent implements OnInit {
 },
 ];
 
-Products=localStorage.setItem("Products", JSON.stringify(this.products) );
 
 addToCart(product) {
   this.products.forEach(item => {

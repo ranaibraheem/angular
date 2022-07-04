@@ -1,31 +1,29 @@
-<div>
-  <div class="products block">
-    <h2>{{totalQuantity}}</h2><br>
-    <div *ngIf="machinesFilter()"></div>
-
-    <div class="product_card card container-fluid col-md-5" *ngFor="let product of beans; let index=index">
-      <img [src]="imagePath+product.image" class="card-img-top" >
-      <div class="cart-body">
-        <h5>{{product.name}}</h5><hr>
-        <p *ngIf="product.onSale30">
-          <b>Sale 30%</b>
-          <span class="onSale">{{product.price}}$</span><br>
-          <span class="newPrice30">New Price: <b>{{product.price -product.price*30/100}}</b></span>
-        </p>
-        <p *ngIf="product.onSale50"><b>Sale 50%</b>
-          <span class="onSale">{{product.price}}$</span><br>
-          <span class="newPrice50">New Price: <b>{{product.price -product.price*50/100}}</b></span>
-        </p>
-        <p *ngIf="!product.onSale30 && !product.onSale50"><b>Price:</b><br> {{product.price}}$</p><hr>
-        <p class="soldOut" *ngIf="product.stock===0">Sold Out</p>
-        <p class="soldOut" *ngIf="product.stock<=5 && product.stock>0">Almost Sold Out</p>
-        <p *ngIf="product.stock>5">In Stock</p>
-        <span [innerHTML]="cartIcon"></span>
-        <button type="button" class="addToCart btn btn-primary" (click)="addToCart(product)" [disabled]="product.stock==0">Add to Cart</button>
-        <a [routerLink]="'/detail/'+product.id">
-          <button class="btn btn-primary" (click)="detail(index)">Detail</button>
-        </a>
-      </div>
+<h3>ALL PODUCTS</h3>
+<div class="products block">
+  <h2>{{totalQuantity}}</h2><br>
+  <div *ngIf="filter()"></div>
+  <div class="product_card card container-fluid col-md-5" *ngFor="let product of products; let index=index">
+    <img [src]="imagePath+product.image" class="card-img-top" >
+    <div class="cart-body">
+      <h5>{{product.name}}</h5><hr>
+      <p *ngIf="product.onSale30">
+        <b>Sale 30%</b>
+        <span class="onSale">{{product.price}}$</span><br>
+        <span class="newPrice30">New Price: <b>{{product.price -product.price*30/100}}</b></span>
+      </p>
+      <p *ngIf="product.onSale50"><b>Sale 50%</b>
+        <span class="onSale">{{product.price}}$</span><br>
+        <span class="newPrice50">New Price: <b>{{product.price -product.price*50/100}}</b></span>
+      </p>
+      <p *ngIf="!product.onSale30 && !product.onSale50"><b>Price:</b><br> {{product.price}}$</p><hr>
+      <p class="soldOut" *ngIf="product.stock===0">Sold Out</p>
+      <p class="soldOut" *ngIf="product.stock<=5 && product.stock>0">Almost Sold Out</p>
+      <p *ngIf="product.stock>5">In Stock</p>
+      <span [innerHTML]="cartIcon"></span>
+      <button type="button" class="addToCart btn btn-primary" (click)="addToCart(product)" [disabled]="product.stock==0">Add to Cart</button>
+      <a [routerLink]="'/detail/'+product.id">
+        <button class="btn btn-primary" (click)="detail(index)">Detail</button>
+      </a>
     </div>
   </div>
 </div>
