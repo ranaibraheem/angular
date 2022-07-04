@@ -1,7 +1,9 @@
 <div>
   <div class="products block">
     <h2>{{totalQuantity}}</h2><br>
-    <div class="product_card card container-fluid col-md-5" *ngFor="let product of products; let index=index">
+    <div *ngIf="machinesFilter()"></div>
+
+    <div class="product_card card container-fluid col-md-5" *ngFor="let product of beans; let index=index">
       <img [src]="imagePath+product.image" class="card-img-top" >
       <div class="cart-body">
         <h5>{{product.name}}</h5><hr>
