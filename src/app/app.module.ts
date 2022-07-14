@@ -8,6 +8,7 @@ import { MatFormFieldControl } from '@angular/material/form-field/form-field-con
 import { MatSelectModule } from "@angular/material/select";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
+import { LocalService } from './local.service';
 
 
 import { AppComponent } from './app.component';
@@ -20,7 +21,6 @@ import { ServersComponent } from './servers/servers.component';
 import { ProductsComponent } from './products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailComponent } from './detail/detail.component';
-import { HomeComponent } from './home/home.component';
 import { MachinesComponent } from './machines/machines.component';
 import { BeansComponent } from './beans/beans.component';
 import { CupsComponent } from './cups/cups.component';
@@ -29,7 +29,7 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: ProductsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'detail/:id', component: DetailComponent },
   { path: 'machines', component: MachinesComponent },
@@ -37,7 +37,8 @@ const appRoutes: Routes = [
   { path: 'cups', component: CupsComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'cart', component: CartComponent}
+  { path: 'cart', component: CartComponent},
+  { path: 'nav', component: NavComponent }
 ]
 @NgModule({
   declarations: [
@@ -50,7 +51,6 @@ const appRoutes: Routes = [
     ServersComponent,
     ProductsComponent,
     DetailComponent,
-    HomeComponent,
     MachinesComponent,
     BeansComponent,
     CupsComponent,
@@ -71,7 +71,7 @@ const appRoutes: Routes = [
     MatSelectModule,
   ],
 
-  providers: [],
+  providers: [LocalService],
   bootstrap: [AppComponent],
 })
 
