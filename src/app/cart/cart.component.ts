@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { LocalService } from '../local.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,15 +12,11 @@ export class CartComponent {
   search = '';
   i=0;
   cartIcon = "&#x1F6D2;";
-  totalPrice =JSON.parse(localStorage.getItem('totalPrice')) || 0;
-  shoppingCart=JSON.parse(localStorage.getItem('shoppingCart')) || [];
-  totalQuantity=JSON.parse(localStorage.getItem('totalQuantity')) || 0;
-  totalPriceNoSale=JSON.parse(localStorage.getItem('totalPriceNoSale')) || 0;
-  Products=JSON.parse(localStorage.getItem('Products')) || [];
-
-  typeof(Products){
-    return console.log(typeof Products);
-  }
+  totalPrice = this.localStorageService.get('totalPrice') || 0;
+  shoppingCart = this.localStorageService.get('shoppingCart') || [];
+  totalQuantity = this.localStorageService.get('totalQuantity') || 0;
+  totalPriceNoSale = this.localStorageService.get('totalPriceNoSale') || 0;
+  Products = this.localStorageService.get('Products') || [];
 
   removeItem(index) {
     this.totalQuantity -= this.shoppingCart[index].quantity
@@ -45,16 +42,16 @@ export class CartComponent {
     localStorage.totalPrice = this.totalPrice
     localStorage.totalPriceNoSale = this.totalPriceNoSale
 
-    if(window.localStorage.shoppingCart=[]){
-      localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
-      localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
-      localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-      localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+    if(this.localStorageService.shoppingCart=[]){
+      this.localStorageService.set("shoppingCart", this.shoppingCart);
+      this.localStorageService.set("totalQuantity", this.totalQuantity);
+      this.localStorageService.set("totalPrice", this.totalPrice);
+      this.localStorageService.set("totalPriceNoSale", this.totalPriceNoSale);
     } else{
-      JSON.parse(window.localStorage.getItem('shoppingCart'));
-      JSON.parse(window.localStorage.getItem('totalQuantity'));
-      JSON.parse(window.localStorage.getItem('totalPrice'));
-      JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
+      this.localStorageService.get('shoppingCart');
+      this.localStorageService.get('totalQuantity');
+      this.localStorageService.get('totalPrice');
+      this.localStorageService.get('totalPriceNoSale');
     }
   }
 
@@ -67,12 +64,7 @@ export class CartComponent {
     this.totalPrice = 0;
     this.totalQuantity = 0;
     this.totalPriceNoSale = 0;
-
-    // localStorage.removeItem('totalQuantity');
-    // localStorage.removeItem('totalPrice');
-    // localStorage.removeItem('shoppingCart');
-    // localStorage.removeItem('totalPriceNoSale');
-    localStorage.clear();
+    this.localStorageService.clear();
   }
 
   updateItem(product, index, updateType){
@@ -94,16 +86,16 @@ export class CartComponent {
             this.totalPriceNoSale += cart.price;
           }
           if(window.localStorage.shoppingCart=[]){
-            localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
-            localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
-            localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-            localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+            this.localStorageService.set("shoppingCart", this.shoppingCart);
+            this.localStorageService.set("totalQuantity", this.totalQuantity);
+            this.localStorageService.set("totalPrice", this.totalPrice);
+            this.localStorageService.set("totalPriceNoSale", this.totalPriceNoSale);
 
           } else{
-            JSON.parse(window.localStorage.getItem('shoppingCart'));
-            JSON.parse(window.localStorage.getItem('totalQuantity'));
-            JSON.parse(window.localStorage.getItem('totalPrice'));
-            JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
+            this.localStorageService.get('shoppingCart');
+            this.localStorageService.get('totalQuantity');
+            this.localStorageService.get('totalPrice');
+            this.localStorageService.get('totalPriceNoSale');
           }
 
         }else{
@@ -122,8 +114,8 @@ export class CartComponent {
               this.totalPriceNoSale -= cart.price;
             }
             localStorage.shoppingCart = JSON.stringify(this.shoppingCart);
-            localStorage.totalQuantity = this.totalQuantity
             localStorage.totalPrice = this.totalPrice
+            localStorage.totalQuantity = this.totalQuantity
             localStorage.totalPriceNoSale = this.totalPriceNoSale;
           }else{
             this.shoppingCart.splice(index, 1);
@@ -157,19 +149,19 @@ export class CartComponent {
 
   constructor(
     private modalService: NgbModal,
+    private localStorageService: LocalService,
     ) {}
 
   ngOnInit() {
-    localStorage.getItem('shoppingCart');
-    localStorage.getItem('totalQuantity');
-    localStorage.getItem('totalPrice');
-    localStorage.getItem('totalPriceNoSale');
+    this.localStorageService.get('shoppingCart');
+    this.localStorageService.get('totalQuantity');
+    this.localStorageService.get('totalPrice');
+    this.localStorageService.get('totalPriceNoSale');
 
-    console.log(localStorage.getItem('totalPrice'));
-    localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
-    localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
-    localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-    localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale));
+    this.localStorageService.set("shoppingCart", this.shoppingCart);
+    this.localStorageService.set("totalQuantity", this.totalQuantity);
+    this.localStorageService.set("totalPrice", this.totalPrice);
+    this.localStorageService.set("totalPriceNoSale", this.totalPriceNoSale);
 
   }
 

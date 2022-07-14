@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { LocalService } from '../local.service';
 
 @Component({
   selector: 'app-products',
@@ -8,57 +9,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ProductsComponent implements OnInit {
   imagePath = 'assets/images/';
   cartIcon = "&#x1F6D2;";
-  productindex=0;
-  totalPrice =JSON.parse(localStorage.getItem('totalPrice')) || 0;
-  shoppingCart=JSON.parse(localStorage.getItem('shoppingCart')) || [];
-  totalQuantity=JSON.parse(localStorage.getItem('totalQuantity')) || 0;
-  totalPriceNoSale=JSON.parse(localStorage.getItem('totalPriceNoSale')) || 0;
-  machines:{
-    name:string,
-    image:string,
-    alt:string,
-    info:string,
-    text:string,
-    price:number,
-    onSale30:boolean,
-    onSale50:boolean,
-    stock:number,
-    id:number,
-    quantity:number,
-    category:string,
-    show:boolean
-  }[]=[];
-
-  beans:{
-    name:string,
-    image:string,
-    alt:string,
-    info:string,
-    text:string,
-    price:number,
-    onSale30:boolean,
-    onSale50:boolean,
-    stock:number,
-    id:number,
-    quantity:number,
-    category:string,
-    show:boolean
-  }[]=[];
-  cups:{
-    name:string,
-    image:string,
-    alt:string,
-    info:string,
-    text:string,
-    price:number,
-    onSale30:boolean,
-    onSale50:boolean,
-    stock:number,
-    id:number,
-    quantity:number,
-    category:string,
-    show:boolean
-  }[]=[];
+  productindex = 0;
+  totalPrice = this.localStorageService.get('totalPrice') || 0;
+  shoppingCart = this.localStorageService.get('shoppingCart') || [];
+  totalQuantity = this.localStorageService.get('totalQuantity') || 0;
+  totalPriceNoSale = this.localStorageService.get('totalPriceNoSale') || 0;
 
   products = [{
     name: "Simple and tasty",
@@ -1068,7 +1023,7 @@ export class ProductsComponent implements OnInit {
 },
 ];
 
-Products=localStorage.setItem("Products", JSON.stringify(this.products) );
+Products=this.localStorageService.set("Products", this.products);
 
 addToCart(product) {
   this.products.forEach(item => {
@@ -1093,17 +1048,17 @@ addToCart(product) {
           this.totalPriceNoSale += item.price;
         }
 
-        if(window.localStorage.shoppingCart=[]){
-          localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
-          localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
-          localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-          localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
+        if(this.localStorageService.shoppingCart=[]){
+          this.localStorageService.set("shoppingCart", this.shoppingCart);
+          this.localStorageService.set("totalQuantity", this.totalQuantity);
+          this.localStorageService.set("totalPrice", this.totalPrice);
+          this.localStorageService.set("totalPriceNoSale", this.totalPriceNoSale);
 
         } else{
-          JSON.parse(window.localStorage.getItem('shoppingCart'));
-          JSON.parse(window.localStorage.getItem('totalQuantity'));
-          JSON.parse(window.localStorage.getItem('totalPrice'));
-          JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
+          this.localStorageService.get('shoppingCart');
+          this.localStorageService.get('totalQuantity');
+          this.localStorageService.get('totalPrice');
+          this.localStorageService.get('totalPriceNoSale');
         }
 
       }else{
@@ -1128,19 +1083,15 @@ addToCart(product) {
             }
 
             if(window.localStorage.shoppingCart=[]){
-              localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart));
-              console.log(this.shoppingCart);
-              localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity));
-              console.log(this.totalQuantity);
-              localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice));
-              console.log(this.totalPrice);
-              localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale));
-              console.log(this.totalPriceNoSale);
+              this.localStorageService.set("shoppingCart", this.shoppingCart);
+              this.localStorageService.set("totalQuantity", this.totalQuantity);
+              this.localStorageService.set("totalPrice", this.totalPrice);
+              this.localStorageService.set("totalPriceNoSale", this.totalPriceNoSale);
             } else{
-              JSON.parse(window.localStorage.getItem('shoppingCart'));
-              JSON.parse(window.localStorage.getItem('totalQuantity'));
-              JSON.parse(window.localStorage.getItem('totalPrice'));
-              JSON.parse(window.localStorage.getItem('totalPriceNoSale'));
+              this.localStorageService.get('shoppingCart');
+              this.localStorageService.get('totalQuantity');
+              this.localStorageService.get('totalPrice');
+              this.localStorageService.get('totalPriceNoSale');
             }
           }
         })
@@ -1151,57 +1102,15 @@ addToCart(product) {
 
 detail(index){
   this.productindex === index;
-  localStorage.setItem('productindex', JSON.stringify(index));
+  this.localStorageService.set('productindex', index);
   console.log(index);
-}
-// filterProduct() {
-//   if (this.product_filter == 'all') {
-//     this.products.forEach(element => {
-//       element.show = true;
-//     });
-//   } else {
-//     this.products.forEach(element => {
-//       element.show = element.category != this.product_filter ? false : true;
-//     });
-//   }
-// },
-filter(){
-  this.products.forEach(element=>{
-    if(element.category=='machines'){
-      if(!this.machines.some(elem => elem === element)){
-        this.machines.push(element);
-      }
-    }else if(element.category=='beans'){
-      if(!this.beans.some(ele => ele === element)){
-        this.beans.push(element);
-      }
-    }else if(element.category=='cups'){
-      if(!this.cups.some(el => el === element)){
-        this.cups.push(element);
-      }
-    }else{
-      this.products=this.products;
-    }
-  })
-  localStorage.setItem("machines", JSON.stringify(this.machines) );
-  localStorage.setItem("beans", JSON.stringify(this.beans) );
-  localStorage.setItem("cups", JSON.stringify(this.cups) );
 }
 
   constructor(
+    private localStorageService: LocalService
   ) {
   }
 
   ngOnInit(): void {
-    localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart) );
-    console.log(this.shoppingCart);
-    localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity) );
-    console.log(this.totalQuantity);
-
-    localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice) );
-    console.log(this.totalPrice);
-
-    localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale) );
-    console.log(this.totalPriceNoSale);
   }
 }
