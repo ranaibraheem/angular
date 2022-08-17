@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input, Output, EventEmitter, SimpleChanges } from "@angular/core";
 import { LocalService } from "../local.service";
 
 @Component({
@@ -10,31 +10,25 @@ import { LocalService } from "../local.service";
 
 export class NavComponent {
     title = '&#x1D554;&#x1D559;&#x1D556;&#x1D563;&#x1D55C;&#x1D55C;&#x1D560;&#x1D557;&#x1D557;&#x1D55A;&#x1D556;';
-    // shoppingCart=JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    // totalQuantity=JSON.parse(localStorage.getItem('totalQuantity')) || 0;
-    // // totalPrice = localStorage.getItem('totalPrice') !== null ? parseFloat(localStorage.getItem('totalPrice')) : 0;
-    // totalPriceNoSale=JSON.parse(localStorage.getItem('totalPriceNoSale')) || 0;
+    @Input()totalPrice = this.localStorageService.get('totalPrice') || 0;
+    @Input()shoppingCart = this.localStorageService.get('shoppingCart') || [];
+    @Input()totalQuantity = this.localStorageService.get('totalQuantity') || 0;
+    @Input()totalPriceNoSale = this.localStorageService.get('totalPriceNoSale') || 0;
+    @Input()Products = this.localStorageService.get('Products') || [];
 
-    // totalPrice=JSON.parse(localStorage.getItem("totalPrice")) || 0;
-    // productindex=JSON.parse(localStorage.getItem("productindex")) || 0;
-
+    totalQuantityReceived:any;
     ngOnInit(): void {
-      // localStorage.setItem("shoppingCart", JSON.stringify(this.shoppingCart));
-      // console.log(this.shoppingCart);
-      // localStorage.setItem("totalQuantity", JSON.stringify(this.totalQuantity));
-      // console.log(this.totalQuantity);
-
-      // localStorage.setItem("totalPrice", JSON.stringify(this.totalPrice));
-      // console.log(this.totalPrice);
-
-      // localStorage.setItem("totalPriceNoSale", JSON.stringify(this.totalPriceNoSale));
-      // console.log(this.totalPriceNoSale);
-      // JSON.parse(localStorage.getItem('totalPrice'));
-      // JSON.parse(localStorage.getItem('shoppingCart'));
-      // JSON.parse(localStorage.getItem('totalQuantity'));
-      // JSON.parse(localStorage.getItem('totalPriceNoSale'));
-
     }
+    receiver(event: any){
+      console.log(event);
+      this.totalQuantityReceived = event;
+    }
+    // ngOnChanges(changes: SimpleChanges) {
+    //   console.log(changes);
+    //   console.log(changes.totalQuantity.currentValue)
+    // }
 
-constructor(private localStorageService: LocalService){}
+constructor(
+  private localStorageService: LocalService
+  ){}
 }

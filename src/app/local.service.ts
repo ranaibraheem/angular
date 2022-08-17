@@ -12,19 +12,7 @@ public totalPriceNoSale: any;
 public productindex: any;
 public products: Object;
 
-  constructor() { }
-
-  // public setItem(key: string, value: string) {
-  //   localStorage.setItem(key, value);
-  // }
-
-  // public getItem(key: string){
-  //   return localStorage.getItem(key)
-  // }
-  // public removeItem(key:string) {
-  //   localStorage.removeItem(key);
-  // }
-  public clear(){
+  public clearS(){
     localStorage.clear();
   }
 
@@ -49,6 +37,7 @@ public products: Object;
     }
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
+
   }
 }

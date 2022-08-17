@@ -1103,14 +1103,13 @@ addToCart(product) {
 detail(index){
   this.productindex === index;
   this.localStorageService.set('productindex', index);
-  console.log(index);
 }
 
+
   constructor(
-    private localStorageService: LocalService
+    private localStorageService: LocalService,
   ) {
   }
-
   ngOnInit(): void {
   }
 }

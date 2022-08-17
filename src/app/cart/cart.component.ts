@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { LocalService } from '../local.service';
 
@@ -12,11 +12,13 @@ export class CartComponent {
   search = '';
   i=0;
   cartIcon = "&#x1F6D2;";
-  totalPrice = this.localStorageService.get('totalPrice') || 0;
-  shoppingCart = this.localStorageService.get('shoppingCart') || [];
-  totalQuantity = this.localStorageService.get('totalQuantity') || 0;
-  totalPriceNoSale = this.localStorageService.get('totalPriceNoSale') || 0;
-  Products = this.localStorageService.get('Products') || [];
+  @Input() @Output() totalPrice = this.localStorageService.get('totalPrice') || 0;
+  @Input()shoppingCart = this.localStorageService.get('shoppingCart') || [];
+  @Input() @Output() totalQuantity = this.localStorageService.get('totalQuantity') || 0;
+  @Input()totalPriceNoSale = this.localStorageService.get('totalPriceNoSale') || 0;
+  @Input()Products = this.localStorageService.get('Products') || [];
+
+  @Output() sender = new EventEmitter();
 
   removeItem(index) {
     this.totalQuantity -= this.shoppingCart[index].quantity
@@ -64,7 +66,7 @@ export class CartComponent {
     this.totalPrice = 0;
     this.totalQuantity = 0;
     this.totalPriceNoSale = 0;
-    this.localStorageService.clear();
+    this.localStorageService.clearS();
   }
 
   updateItem(product, index, updateType){
@@ -144,25 +146,20 @@ export class CartComponent {
       }
     })
   }
-
   closeResult: string;
+  totalQuantitySend: any;
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes)
+    console.log(changes.totalQuantity.currentValue)
+    this.totalQuantitySend = changes.totalQuantity.currentValue;
+  }
 
   constructor(
     private modalService: NgbModal,
     private localStorageService: LocalService,
     ) {}
-
   ngOnInit() {
-    this.localStorageService.get('shoppingCart');
-    this.localStorageService.get('totalQuantity');
-    this.localStorageService.get('totalPrice');
-    this.localStorageService.get('totalPriceNoSale');
-
-    this.localStorageService.set("shoppingCart", this.shoppingCart);
-    this.localStorageService.set("totalQuantity", this.totalQuantity);
-    this.localStorageService.set("totalPrice", this.totalPrice);
-    this.localStorageService.set("totalPriceNoSale", this.totalPriceNoSale);
-
+    this.sender.emit(this.totalQuantitySend);
   }
 
   open(content) {
@@ -172,7 +169,9 @@ export class CartComponent {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-
+  refresh(): void {
+    window.location.reload();
+}
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

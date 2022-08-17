@@ -3,6 +3,6 @@
   <div class="container-fluid" class="navlinks">
     <a routerLink="/login" class="logIn btn btn-primary fixLink">LOG IN</a>
     <a routerLink="/" class="logIn btn btn-primary fixLink">Home</a>
-    <app-cart></app-cart>
+    <app-cart [shoppingCart]="shoppingCart" [totalQuantity]="totalQuantity" [totalPrice]="totalPrice" [totalPriceNoSale]="totalPriceNoSale" (sender)="receiver($event)"></app-cart>
   </div>
 </nav>

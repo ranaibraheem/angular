@@ -3,7 +3,7 @@
   <form>
     <mat-form-field appearance="fill">
       <mat-label>Categories</mat-label>
-      <mat-select [(value)]="selected" placeholder="choose">
+      <mat-select>
         <mat-option *ngFor="let category of categories" [value]="selected"  class="fixlink" [routerLink]="'/'+category.value" >
           {{category.viewValue}}
         </mat-option>
