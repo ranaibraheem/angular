@@ -1,8 +1,7 @@
-<!-- <h3>ALL PRODUCTS</h3> -->
+<app-nav [shoppingCart]="shoppingCart" [totalQuantity]="totalQuantity" [totalPrice]="totalPrice" [totalPriceNoSale]="totalPriceNoSale"></app-nav>
+<app-header></app-header>
+<h3>ALL PRODUCTS</h3>
 <div class="products block">
-  <app-cart></app-cart>
-  <!-- <app-cart [totalQuantity]="totalQuantity" [shoppingCart]="shoppingCart" [totalPrice]="totalPrice" [totalPriceNoSale]="totalPriceNoSale"></app-cart> -->
-  <h2>{{totalQuantity}}</h2><br>
   <div class="product_card card container-fluid col-md-5" *ngFor="let product of products; let index=index">
     <img [src]="imagePath+product.image" class="card-img-top" >
     <div class="cart-body">

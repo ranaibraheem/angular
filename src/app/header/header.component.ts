@@ -17,7 +17,7 @@ export class HeaderComponent {
   selected:string='';
 
   categories: Category[] = [
-    {value: '', viewValue: 'All'},
+    {value: 'products', viewValue: 'All'},
     {value: 'machines', viewValue: 'Machines'},
     {value: 'beans', viewValue: 'Beans'},
     {value: 'cups', viewValue: 'Cups'},

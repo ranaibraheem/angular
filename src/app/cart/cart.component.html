@@ -11,7 +11,7 @@
 <ng-template #mymodal let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Shopping Cart</h4>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click'); refresh()"></button>
   </div><hr>
   <div class="modal-body">
     <h6>Cart Items:</h6>
@@ -70,6 +70,6 @@
   </div>
   <div class="modal-footer">
     <button type="submit" class="btn btn-primary" routerLink="/checkout">Check Out</button>
-    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="modal.close('Save click')">Close</button>
+    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="modal.close('Save click'); refresh()">Close</button>
   </div>
 </ng-template>
